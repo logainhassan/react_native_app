@@ -20,7 +20,7 @@ export default class RegisterForm extends Component {
         gender: 'male',
     
     }
-}
+  }
 
 onChangeName = (e) => {
     this.setState({
@@ -58,12 +58,13 @@ onSubmit =(e)=> {
         .then(res => {
           console.log('Success:', res);   
             if (res.ok) {
-                Actions.pop();
+                Actions.profile();
                 return res.json();
             } else {
                 throw Error(res.statusText);
+                
             }
-        }).catch(error => {console.error(error) } );  
+        }).catch(error => {Alert.alert(error); } );  
 
         e.preventDefault();
 }

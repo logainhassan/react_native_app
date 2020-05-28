@@ -3,8 +3,9 @@ import {Router, Stack, Scene} from 'react-native-router-flux';
 
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import Profile from './components/Profile';
 import TodoList from './components/TodoList';
-import TodoItem from './components/TodoItem';
+
 
 export default class Routes extends Component<{}> {
 	render() {
@@ -13,7 +14,8 @@ export default class Routes extends Component<{}> {
 			    <Stack key="root" hideNavBar={true}>
 			      <Scene key="login" component={Login} title="Login" initial={true}/>
 			      <Scene key="signup" component={Signup} title="Register"/>
-				  <Scene key="todolist" component={TodoList} title="Todolist"/>
+				  <Scene key="profile" component={Profile} title="profile"/>
+				  <Scene key="todolist" component={TodoList} title="todolist"/>
 			    </Stack>
 			 </Router>
 			)

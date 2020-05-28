@@ -33,7 +33,6 @@ export default class loginForm extends Component {
         let obj ={};
         obj.email = this.state.email;
         obj.password = this.state.password;
-        
         fetch("http://todoapp.ahmedrohym.com/api.php?apicall=login", {
             method: "POST",
             headers: {
@@ -45,7 +44,7 @@ export default class loginForm extends Component {
             })
             .then(res => {
                 if (res.ok) {
-                    Actions.todolist();
+                    Actions.profile();
                     return res.json();
                 } else {
                     throw Error(res.statusText);

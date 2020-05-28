@@ -9,8 +9,10 @@ import {
   Button,
   TextInput,
   Keyboard,
-  Platform
+  Platform,
+  TouchableOpacity
 } from "react-native";
+import {Actions} from 'react-native-router-flux';
 
 const isAndroid = Platform.OS == "android";
 const viewPadding = 10;
@@ -82,6 +84,10 @@ export default class TodoList extends Component {
     Tasks.all(tasks => this.setState({ tasks: tasks || [] }));
   }
 
+  profile() {
+		Actions.profile()
+	}
+
   render() {
     return (
       <View
@@ -113,6 +119,8 @@ export default class TodoList extends Component {
           returnKeyType="done"
           returnKeyLabel="done"
         />
+        <TouchableOpacity style={styles.buttonContainer} onPress={this.profile}><Text>Profile</Text></TouchableOpacity> 
+
       </View>
     );
   }
@@ -174,7 +182,18 @@ const styles = StyleSheet.create({
     borderColor: "gray",
     borderWidth: isAndroid ? 0 : 1,
     width: "100%"
-  }
+   } ,
+  buttonContainer: {
+    height:45,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom:20,
+    width:500,
+    backgroundColor: "#00BFFF",
+  },
+
 });
 
 AppRegistry.registerComponent("TodoList", () => TodoList);
+
